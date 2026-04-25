@@ -1,0 +1,47 @@
+/*********
+ * design.txt – Diseño de instrucción tipo C para Shift Left y Shift Right
+ * Autor 1: Andres David Osorio Moreno
+ * Autor 2: Daniel Mauricio Giraldo Moreno
+ *********/
+
+Formato instrucción tipo C: 111 a cccccc ddd jjj
+
+=======================================================
+INSTRUCCIONES SHIFT - DISEÑO
+=======================================================
+
+La condición que activa el Shifter en la ALU es:
+  zx=0, nx=0, zy=0, ny=0, no=1
+El bit f determina la dirección:
+  f=0 → Shift Left
+  f=1 → Shift Right
+
+=======================================================
+DECISIÓN DE DISEÑO
+=======================================================
+
+Se decidió NO incluir A<<1 y A>>1 como instrucciones válidas
+debido a que en la arquitectura Hack, el bit 'a' del campo
+acccccc solo distingue entre A (a=0) y M (a=1), por lo que
+D<<1 y A<<1 generarían el mismo binario (0000001), haciendo
+imposible su diferenciación en el desensamblador.
+
+=======================================================
+INSTRUCCIONES VÁLIDAS Y SU BINARIO
+=======================================================
+
+| Instrucción | a | cccccc | Bits comp | Ejemplo        |
+|-------------|---|--------|-----------|----------------|
+| D<<1        | 0 | 000001 | 0000001   | D=D<<1         |
+| M<<1        | 1 | 000001 | 1000001   | D=M<<1         |
+| D>>1        | 0 | 000011 | 0000011   | D=D>>1         |
+| M>>1        | 1 | 000011 | 1000011   | AM=M>>1        |
+
+=======================================================
+EJEMPLOS COMPLETOS EN BINARIO (111 acccccc ddd jjj)
+=======================================================
+
+D=D<<1   →   1110000001010000
+D=M<<1   →   1111000001010000
+D=D>>1   →   1110000011010000
+AM=M>>1  →   1111000011101000
