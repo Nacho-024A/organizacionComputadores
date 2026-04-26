@@ -1,3 +1,6 @@
+# Diagrama de Clases
+
+```mermaid
 classDiagram
 
 class ManejadorArchivos {
@@ -42,3 +45,4 @@ Controlador --> ManejadorArchivos : usa
 Controlador --> Assembler : usa
 Controlador --> DisAssembler : usa
 DisAssembler --> Assembler : reutiliza tablas
+```
