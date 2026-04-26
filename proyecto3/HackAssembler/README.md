@@ -49,6 +49,36 @@ El sistema detecta automáticamente el tipo de archivo y ejecuta el modo corresp
 
 ---
 
+## Tests
+
+El proyecto incluye casos de prueba en la carpeta `tests/` para validar el funcionamiento del Assembler y DisAssembler.
+
+### Estructura
+
+- tests/asm/ → Archivos de entrada en ensamblador  
+- tests/hack/ → Archivos de entrada en binario  
+
+### Cómo probar
+
+1. Ejecuta el programa:
+   ```bash
+   python Controlador.py
+   ```
+
+2. Selecciona un archivo de la carpeta tests/asm/ o tests/hack/
+
+---
+
+### Casos incluidos
+
+- Programa simple sin etiquetas  
+- Programa con loop  
+- Secuencia Fibonacci
+
+Estos casos permiten validar tanto la traducción ASM → HACK como HACK → ASM.
+
+---
+
 ## Autores
 
 - Andres David Osorio Moreno
