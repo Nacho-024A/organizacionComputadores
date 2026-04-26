@@ -29,3 +29,19 @@
 - Creación de API.md con documentación de clases y métodos
 - Creación de USER_GUIDE.md con guía de uso
 - Creación de README.md como punto de entrada del proyecto
+
+## [2.0.1] - 2026-04-25
+
+### Agregado
+- Carpeta de pruebas (tests/) con casos de prueba para ASM y HACK
+- Casos de prueba adicionales (incluyendo Fibonacci)
+- Carpeta outputs/ con resultados generados por el programa
+- Estructura organizada para validación de resultados (asm/, hack/, expected/, outputs/)
+
+### Mejorado
+- Organización del repositorio para facilitar pruebas y validación
+- Documentación del uso de tests y outputs en README
+
+### Corregido
+- Eliminación de archivos temporales (__pycache__, .pyc) del repositorio
+- Limpieza de archivos innecesarios (.gitkeep en carpetas con contenido)
