@@ -1,0 +1,6 @@
+@ARG
+D=A
+@THIS
+D=D+A
+@SP
+M=D

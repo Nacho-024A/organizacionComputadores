@@ -79,6 +79,29 @@ Estos casos permiten validar tanto la traducción ASM → HACK como HACK → ASM
 
 ---
 
+### Outputs
+
+La carpeta `tests/outputs/` contiene las salidas generadas por el programa al ejecutar los casos de prueba.
+
+Esto permite:
+
+- Comparar resultados generados vs esperados  
+- Validar el correcto funcionamiento del sistema  
+- Evidenciar pruebas reales del Assembler y DisAssembler  
+
+---
+
+### Validación
+
+Para verificar el funcionamiento:
+
+1. Ejecutar el programa con archivos en `tests/asm/` o `tests/hack/`
+2. Comparar la salida generada con:
+   - `tests/expected/` (resultado esperado generados con IA (Claude o ChatGPT))
+   - `tests/outputs/` (resultado obtenido por el programa)
+
+---
+
 ## Autores
 
 - Andres David Osorio Moreno
