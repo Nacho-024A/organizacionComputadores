@@ -45,3 +45,28 @@
 ### Corregido
 - Eliminación de archivos temporales (__pycache__, .pyc) del repositorio
 - Limpieza de archivos innecesarios (.gitkeep en carpetas con contenido)
+
+## [3.0.0] - 2026-04-28
+### Agregado
+* Shifter.hdl: chip de desplazamiento de 1 bit con soporte para
+  izquierda (direction=0) y derecha (direction=1), usando 16 Mux
+  individuales. Incluye pin `result` con el bit que sale por el extremo
+* ALU.hdl: extensión de la ALU estándar Hack con integración del chip
+  Shifter. Detecta modo shift con la combinación zx=nx=zy=ny=0, no=1.
+  Incluye pin `result` enmascarado, flags `zr` y `ng`
+* Memory.hdl: mapeo completo del espacio de memoria usando DMux4Way y
+  Mux4Way16. Cubre RAM16K (0x0000-0x3FFF), Screen (0x4000-0x5FFF)
+  y Keyboard (0x6000)
+* CPU.hdl: implementación completa de la CPU Hack con registros A y D,
+  lógica de selección A/M, control de escritura en memoria y lógica
+  de salto condicional (JGT, JEQ, JLT y combinaciones)
+* Computer.hdl: integración completa de ROM32K, CPU y Memory formando
+  el computador Hack completo
+* design.txt: actualizado con especificación del encoding binario de
+  instrucciones shift left (<<) y shift right (>>) en formato tipo C
+* Archivos md5 generados para todos los entregables (Shifter, ALU,
+  Memory, CPU, Computer, design)
+
+### Validado
+* Tests unitarios de todos los chips pasando en plataforma Nand2Tetris
+  (Shifter, ALU, Memory, CPU, Computer)
