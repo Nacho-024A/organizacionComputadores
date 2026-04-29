@@ -38,6 +38,38 @@ INSTRUCCIONES VÁLIDAS Y SU BINARIO
 | M>>1        | 1 | 000011 | 1000011   | AM=M>>1        |
 
 =======================================================
+CAMPOS ddd Y jjj
+=======================================================
+El campo ddd indica el destino del resultado:
+  d1 (bit 5) = 1 → guardar en A
+  d2 (bit 4) = 1 → guardar en D
+  d3 (bit 3) = 1 → guardar en M (writeM=1)
+
+Ejemplos de ddd:
+  D=D<<1   → destino D       → d1=0 d2=1 d3=0 → ddd=010
+  AM=M>>1  → destino A y M   → d1=1 d2=0 d3=1 → ddd=101
+
+El campo jjj es 000 en instrucciones shift (sin salto).
+=======================================================
+VERIFICACION DE EJEMPLOS
+=======================================================
+D=D<<1:
+  111 | a=0 | cccccc=000001 | ddd=010 | jjj=000
+  → 1110000001010000 ✓
+
+D=M<<1:
+  111 | a=1 | cccccc=000001 | ddd=010 | jjj=000
+  → 1111000001010000 ✓
+
+D=D>>1:
+  111 | a=0 | cccccc=000011 | ddd=010 | jjj=000
+  → 1110000011010000 ✓
+
+AM=M>>1:
+  111 | a=1 | cccccc=000011 | ddd=101 | jjj=000
+  → 1111000011101000 ✓
+
+=======================================================
 EJEMPLOS COMPLETOS EN BINARIO (111 acccccc ddd jjj)
 =======================================================
 
